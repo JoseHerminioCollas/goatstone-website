@@ -1,3 +1,9 @@
+## The Goatstone Website
+
+Code for the website
+
+[https://www.goatstone.com](https://www.goatstone.com)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
