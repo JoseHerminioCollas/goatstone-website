@@ -50,34 +50,49 @@ function App() {
         </p>
         <p>
           I have also been working with generating styles with JavaScript, D3 Interpolators, and JSS. I hope to work
-          more with this strategy and see what more could be done with it. Following, find more information about
+          more with this strategy and see what more could be done with it.
         </p>
       </article>
       <article>
         <h3>
-           MapLab
+          MapLab
+          &nbsp;
+          <a href="https://map-lab-goatstone.appspot.com" target="new">https://map-lab-goatstone.appspot.com</a>
         </h3>
         <p>
-          Experiments with mapping libraries, Google, Leaflet and Bing.          
+          Experiments with mapping libraries:
+          &nbsp;
+          <a href="https://cloud.google.com/maps-platform/">
+            Google
+          </a>,
+          &nbsp;
+          <a href="https://leafletjs.com/">
+          Leaflet
+          </a> and
+          &nbsp;
+          <a href="https://www.bingmapsportal.com/">
+          Bing
+          </a>
+          .
         </p>
-        <a href="https://map-lab-goatstone.appspot.com" target="new">MapLab</a>
       </article>
       <article>
         <h3>
           D3 Framework
+          &nbsp;<a href="https://d3-frame.goatstone.com" target="new">https://d3-frame.goatstone.com</a>
         </h3>
         <p>
           <img src="img/d3-frame-1.png" className="right" width="250" height="160" alt="" />
           <img src="img/d3-frame-3.png" className="right" width="250" height="160" alt="" /> D3 and React
             Methodologies for using the D3 visualization library with React. I have been working with React
             ( reactjs.org ) and D3 ( d3js.org ) together, and I am documenting methodologies in a GitHub repository,
-            <a href="http://d3-frame.goatstone.com" target="new">d3-frame.goatstone.com</a>
         </p>
       </article>
       <article>
         <h3>
           Minhooks
-            <a href="https://github.com/JoseHerminioCollas/min-hooks" target="new">min-hooks </a>
+          &nbsp;
+          <a href="https://github.com/JoseHerminioCollas/min-hooks" target="new">https://github.com/JoseHerminioCollas/min-hooks</a>
         </h3>
         <p>
           <img src="img/min-hooks.png" alt="" />
@@ -89,7 +104,8 @@ function App() {
       <article>
         <h3>
           Color Globe
-            <a href="http://colorglobe.goatstone.com" target="new">Color Globe</a>
+          &nbsp;
+          <a href="http://colorglobe.goatstone.com" target="new">http://colorglobe.goatstone.com</a>
         </h3>
         <p>
           <img src="img/globe.png" alt="" />
@@ -100,7 +116,8 @@ function App() {
       <article>
         <h3>
           Ameb, a game
-            <a href="http://ameb.goatstone.com/" target="new">ameb.goatstone.com</a>
+          &nbsp;
+          <a href="http://ameb.goatstone.com/" target="new">http://ameb.goatstone.com/</a>
         </h3>
         <p>
           <img src="img/ameb.png" alt="" />
@@ -112,7 +129,8 @@ function App() {
       <article>
         <h3>
           AlphaCronke
-            <a href="http://alphacronke.goatstone.com" target="new">AlphaCronke</a>
+          &nbsp;
+          <a href="http://alphacronke.goatstone.com" target="new">http://alphacronke.goatstone.com</a>
         </h3>
         <p>
           <img src="img/alpha-cronke3.png" className="right" alt="" />
