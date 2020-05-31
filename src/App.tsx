@@ -38,13 +38,11 @@ function App() {
           work. Goatstone is involved in web development, primary using the technologies: JavaScipt, CSS, and HTML.
           I have been working with
             &nbsp;
-            <a href="" target="new">React </a>
+            <a href="https://reactjs.org/" target="new">React </a>
             &nbsp;
             and
             &nbsp;
-            <a href="" target="new">D3</a>
-            &nbsp;
-          <a href="" target="new">JSS</a>
+            <a href="https://d3js.org/" target="new">D3</a>
             &nbsp;
             lately.
         </p>
