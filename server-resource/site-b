@@ -1,0 +1,33 @@
+server {
+       listen 80;
+       listen [::]:80;
+       server_name 13.89.57.111 goatstone.com www.goatstone.com;
+       return 301 https://goatstone.com$request_uri;
+}
+server {
+	listen 443 ssl;
+        server_name www.goatstone.com;
+        ssl_certificate     /etc/nginx/ssl_keys/certificate-merge.crt;
+        ssl_certificate_key /etc/nginx/ssl_keys/private.key;
+       return 301 https://goatstone.com$request_uri;
+}
+server {
+	listen 443 ssl;
+	# listen [::]:443 ssl;
+        server_name goatstone.com;
+        ssl_certificate     /etc/nginx/ssl_keys/certificate-merge.crt;
+        ssl_certificate_key /etc/nginx/ssl_keys/private.key;
+        # ssl_certificate     /etc/nginx/ssl_keys/goatstone-test.crt ;
+        # ssl_certificate_key /etc/nginx/ssl_keys/goatstone-test.key;
+
+	root /var/www/html-b;
+	index index.html;
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+}
+# How To Create a Self-Signed SSL Certificate for Nginx on CentOS 7
+# https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-centos-7
+# https://www.linode.com/docs/web-servers/nginx/enable-tls-on-nginx-for-https-connections/
