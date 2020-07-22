@@ -1,14 +1,22 @@
 import React from 'react';
+import { Icon } from '@fluentui/react/lib/Icon';
 import logo from './logo.svg';
+
+import { initializeIcons } from '@uifabric/icons';
+initializeIcons();
 
 function App() {
   return (
     <>
+      <Icon iconName="CompassNW" className="ms-IconExample" />
       <header>
         <h1>
           Goatstone <i>Web Development</i>
         </h1>
-        <div >
+        <div>
+          ccc
+          <Icon iconName="CompassNW" className="ms-IconExample" />
+          cc
           <img src={logo} className="logo" alt="logo" />
         </div>
       </header>
