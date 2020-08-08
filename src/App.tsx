@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from '@fluentui/react/lib/Icon';
-import logo from './logo.svg';
+import logo from './art/goat-head.svg';
 
 import { initializeIcons } from '@uifabric/icons';
 initializeIcons();
@@ -8,17 +8,12 @@ initializeIcons();
 function App() {
   return (
     <>
-      <Icon iconName="CompassNW" className="ms-IconExample" />
       <header>
         <h1>
           Goatstone <i>Web Development</i>
         </h1>
-        <div>
-          ccc
-          <Icon iconName="CompassNW" className="ms-IconExample" />
-          cc
-          <img src={logo} className="logo" alt="logo" />
-        </div>
+        <Icon iconName="Mail" className="fluent-icon" />
+        <img src={logo} className="logo" alt="logo" />
       </header>
       <article>
         <h3>Contact</h3>

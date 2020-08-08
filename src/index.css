@@ -31,9 +31,17 @@ h5 {
 header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   background: #333;
   width: 100%;
+  padding: 0.3em;
+}
+header img.logo {
+  max-height: 100px;
+  min-height: 50px;
+}
+.fluent-icon {
+  font-size: 2em;
 }
 header i {
   color: #aaa;
@@ -47,15 +55,6 @@ article {
   margin: 1%;
   padding: 2%;
   max-width: 400px;
-}
-header div {
-  height: 150px;
-}
-header div img.logo {
-  border: 2px solid blue;
-  height: 300px;
-  clip-path: inset(20px 40px 160px 60px);
-  background: gray;
 }
 img {
   margin: 1%;
