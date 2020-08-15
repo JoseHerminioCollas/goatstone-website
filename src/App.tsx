@@ -1,18 +1,87 @@
-import React from 'react';
-import { Icon } from '@fluentui/react/lib/Icon';
+import React, { useState, FormEvent } from 'react';
+import { Icon  } from '@fluentui/react/lib/Icon';
+import { Modal, Label, TextField } from '@fluentui/react/lib/'
+import { Button } from '@fluentui/react/lib/Button'
 import logo from './art/goat-head.svg';
 
 import { initializeIcons } from '@uifabric/icons';
-initializeIcons();
 
-function App() {
+const text = {
+  contactForm: {
+    emailFrom: 'Your Email',
+    message: 'Your Message',
+    send: 'Send'
+}}
+initializeIcons();
+const mailTo = () => {
+  console.log("xxxx")
+}
+const MailTo = () => {
+  const [msg, setMsg] = useState("")
+  const [email, setEmail] = useState("")
+  const onEmailChange = (
+    ev: FormEvent<HTMLInputElement | HTMLTextAreaElement>, 
+    newValue: (string | undefined) = ''
+  ): void => {
+    setEmail(newValue)
+};
+const onMessageChange = (
+      ev: FormEvent<HTMLInputElement | HTMLTextAreaElement>, 
+      newValue: (string | undefined) = ''
+    ): void => {
+      setMsg(newValue)
+  };
+
   return (
     <>
+      <h3>Mail To Goatstone</h3>
+      <TextField 
+        label={text.contactForm.emailFrom}
+        value={email}
+        onChange={onEmailChange}
+        />
+      <TextField
+          label={text.contactForm.message}
+          value={msg}
+          multiline={true}
+          onChange={onMessageChange}
+      />
+      <Button
+        onClick={mailTo}
+      >
+        {text.contactForm.send}
+      </Button>
+    </>
+  )
+}
+
+function App() {
+  const [ isVis, setIsVis] = useState(true)
+  function hideModal() {
+    setIsVis(false)
+  }
+  function showModal() {
+    setIsVis(true)
+  }
+  return (
+    <>
+      <Modal
+        titleAriaId=""
+        isOpen={isVis}
+        onDismiss={hideModal}
+        isBlocking={false}
+      >
+        <MailTo />
+      </Modal>
       <header>
         <h1>
           Goatstone <i>Web Development</i>
         </h1>
-        <Icon iconName="Mail" className="fluent-icon" />
+        <Icon
+          iconName="Mail"
+          className="fluent-icon" 
+          onClick={showModal}
+        />
         <img src={logo} className="logo" alt="logo" />
       </header>
       <article>

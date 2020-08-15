@@ -46,6 +46,7 @@ header img.logo {
 header i {
   color: #aaa;
   font-size: 50%;
+  cursor: pointer;
 }
 article {
   display: flex;
