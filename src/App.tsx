@@ -3,6 +3,7 @@ import { Icon  } from '@fluentui/react/lib/Icon';
 import { Modal, Label, TextField } from '@fluentui/react/lib/'
 import { Button } from '@fluentui/react/lib/Button'
 import logo from './art/goat-head.svg';
+import axios from 'axios';
 
 import { initializeIcons } from '@uifabric/icons';
 
@@ -15,6 +16,31 @@ const text = {
 initializeIcons();
 const mailTo = () => {
   console.log("xxxx")
+
+  axios.post('http://localhost:8080/message', {
+    params: {
+      name: 'xxx'
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  }); 
+  // axios(
+  //   {
+  //     method: 'POST',
+  //     url: 'localhost:/message',
+  //     data: {
+  //       name: 'xxx',
+  //       message: 'xxxxxx'
+  //     }
+  // }
+  // )
 }
 const MailTo = () => {
   const [msg, setMsg] = useState("")
