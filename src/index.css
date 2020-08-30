@@ -93,3 +93,6 @@ section.mail-dialog {
 section.mail-dialog button {
     margin: 1em 0;
 }
+input:invalid {
+    border-color: red;
+}

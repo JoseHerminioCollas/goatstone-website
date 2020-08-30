@@ -64,14 +64,27 @@ const MailTo = () => {
   useEffect(() => {
     setIsValid( (msg !== '' && email !== '' && name !== '') )
   }, [msg, email, name])
+  // validate email
+  const oGEM = (value: string): string => {
+    return value.length > 3? '' : 'Valid email required'
+  }
 
   return (
     <section className="mail-dialog">
       <h3>{text.contactForm.title}</h3>
+      <input
+        required
+	type="email"
+	name="email"
+	placeholder="abc"
+      />
       <TextField 
         label={text.contactForm.emailFrom}
         value={email}
         onChange={onEmailChange}
+	onGetErrorMessage={oGEM}
+	validateOnFocusOut
+	validateOnLoad={false}
 	required
         />
       <TextField 
