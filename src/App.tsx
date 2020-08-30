@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import { Icon  } from '@fluentui/react/lib/Icon';
 import { Modal, Label, TextField } from '@fluentui/react/lib/'
 import { Button } from '@fluentui/react/lib/Button'
@@ -7,7 +7,7 @@ import axios from 'axios';
 
 import { initializeIcons } from '@uifabric/icons';
 
-const url = 'http://ec2-54-218-102-36.us-west-2.compute.amazonaws.com:3000/message'
+const url = 'http://54.218.102.36:3000/message'
 
 initializeIcons();
 const mailTo = (name: string, message: string, email: string) => {
@@ -31,12 +31,14 @@ const mailTo = (name: string, message: string, email: string) => {
 const MailTo = () => {
   const text = {
     contactForm: {
+      title: 'Please, send email to Goatstone',
       emailFrom: 'Your Email',
-      message: 'Your Message',
+      message: 'Message',
       name: 'Name',
       send: 'Send'
     }
   }
+  const [isValid, setIsValid] = useState(false)
   const [msg, setMsg] = useState("")
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
@@ -58,32 +60,40 @@ const MailTo = () => {
     ): void => {
       setMsg(newValue)
   }
+  // validate the form
+  useEffect(() => {
+    setIsValid( (msg !== '' && email !== '' && name !== '') )
+  }, [msg, email, name])
 
   return (
-    <>
-      <h3>Mail To Goatstone</h3>
+    <section className="mail-dialog">
+      <h3>{text.contactForm.title}</h3>
       <TextField 
         label={text.contactForm.emailFrom}
         value={email}
         onChange={onEmailChange}
+	required
         />
       <TextField 
         label={text.contactForm.name}
         value={name}
         onChange={onNameChange}
+	required
         />
       <TextField
           label={text.contactForm.message}
           value={msg}
           multiline={true}
           onChange={onMessageChange}
+	  required
       />
       <Button
+        disabled={!isValid}
         onClick={() => mailTo(email, msg, name)}
       >
         {text.contactForm.send}
       </Button>
-    </>
+    </section>
   )
 }
 
