@@ -7,56 +7,57 @@ import axios from 'axios';
 
 import { initializeIcons } from '@uifabric/icons';
 
-const text = {
-  contactForm: {
-    emailFrom: 'Your Email',
-    message: 'Your Message',
-    send: 'Send'
-}}
-initializeIcons();
-const mailTo = () => {
-  console.log("xxxx")
+const url = 'http://ec2-54-218-102-36.us-west-2.compute.amazonaws.com:3000/message'
 
-  axios.post('http://localhost:8080/message', {
+initializeIcons();
+const mailTo = (name: string, message: string, email: string) => {
+  axios({
+    method: 'POST',
+    url,
     params: {
-      name: 'xxx'
-    }
-  })
+      name,
+      message,
+      email
+    },
+  }
+  )
   .then(function (response) {
-    console.log(response);
+     console.log(response);
   })
   .catch(function (error) {
     console.log(error);
   })
-  .then(function () {
-    // always executed
-  }); 
-  // axios(
-  //   {
-  //     method: 'POST',
-  //     url: 'localhost:/message',
-  //     data: {
-  //       name: 'xxx',
-  //       message: 'xxxxxx'
-  //     }
-  // }
-  // )
 }
 const MailTo = () => {
+  const text = {
+    contactForm: {
+      emailFrom: 'Your Email',
+      message: 'Your Message',
+      name: 'Name',
+      send: 'Send'
+    }
+  }
   const [msg, setMsg] = useState("")
   const [email, setEmail] = useState("")
+  const [name, setName] = useState("")
+  const onNameChange = (
+    ev: FormEvent<HTMLInputElement | HTMLTextAreaElement>, 
+    newValue: (string | undefined) = ''
+  ): void => {
+    setName(newValue)
+  }
   const onEmailChange = (
     ev: FormEvent<HTMLInputElement | HTMLTextAreaElement>, 
     newValue: (string | undefined) = ''
   ): void => {
     setEmail(newValue)
-};
-const onMessageChange = (
+  }
+  const onMessageChange = (
       ev: FormEvent<HTMLInputElement | HTMLTextAreaElement>, 
       newValue: (string | undefined) = ''
     ): void => {
       setMsg(newValue)
-  };
+  }
 
   return (
     <>
@@ -66,6 +67,11 @@ const onMessageChange = (
         value={email}
         onChange={onEmailChange}
         />
+      <TextField 
+        label={text.contactForm.name}
+        value={name}
+        onChange={onNameChange}
+        />
       <TextField
           label={text.contactForm.message}
           value={msg}
@@ -73,7 +79,7 @@ const onMessageChange = (
           onChange={onMessageChange}
       />
       <Button
-        onClick={mailTo}
+        onClick={() => mailTo(email, msg, name)}
       >
         {text.contactForm.send}
       </Button>
@@ -82,7 +88,7 @@ const onMessageChange = (
 }
 
 function App() {
-  const [ isVis, setIsVis] = useState(true)
+  const [isVis, setIsVis] = useState(true)
   function hideModal() {
     setIsVis(false)
   }
