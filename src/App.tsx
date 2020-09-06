@@ -4,12 +4,12 @@ import { Modal, Label, TextField } from '@fluentui/react/lib/'
 import { Button } from '@fluentui/react/lib/Button'
 import logo from './art/goat-head.svg';
 import axios from 'axios';
-
 import { initializeIcons } from '@uifabric/icons';
 
-const url = 'http://54.218.102.36:3000/message'
+const url = '/message'
 
 initializeIcons();
+
 const mailTo = (name: string, message: string, email: string) => {
   axios({
     method: 'POST',
@@ -19,8 +19,7 @@ const mailTo = (name: string, message: string, email: string) => {
       message,
       email
     },
-  }
-  )
+  })
   .then(function (response) {
      console.log(response);
   })
@@ -28,6 +27,7 @@ const mailTo = (name: string, message: string, email: string) => {
     console.log(error);
   })
 }
+
 const MailTo = () => {
   const text = {
     contactForm: {
