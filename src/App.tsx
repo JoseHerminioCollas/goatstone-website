@@ -72,20 +72,14 @@ const MailTo = () => {
   return (
     <section className="mail-dialog">
       <h3>{text.contactForm.title}</h3>
-      <input
-        required
-	type="email"
-	name="email"
-	placeholder="abc"
-      />
       <TextField 
         label={text.contactForm.emailFrom}
         value={email}
         onChange={onEmailChange}
-	onGetErrorMessage={oGEM}
-	validateOnFocusOut
-	validateOnLoad={false}
-	required
+        onGetErrorMessage={oGEM}
+        validateOnFocusOut
+        validateOnLoad={false}
+        required
         />
       <TextField 
         label={text.contactForm.name}
