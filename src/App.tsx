@@ -21,14 +21,14 @@ const mailTo = (name: string, message: string, email: string) => {
     },
   })
   .then(function (response) {
-     console.log(response);
+    //  console.log(response);
   })
   .catch(function (error) {
-    console.log(error);
+    // console.log(error);
   })
 }
 
-const MailTo = () => {
+const MailTo = ({onSuccess}: any) => {
   const text = {
     contactForm: {
       title: 'Please, send email to Goatstone',
@@ -96,7 +96,11 @@ const MailTo = () => {
       />
       <Button
         disabled={!isValid}
-        onClick={() => mailTo(email, msg, name)}
+        onClick={() => {
+          mailTo(email, msg, name)
+          onSuccess()
+         }
+        }
       >
         {text.contactForm.send}
       </Button>
@@ -105,7 +109,7 @@ const MailTo = () => {
 }
 
 function App() {
-  const [isVis, setIsVis] = useState(true)
+  const [isVis, setIsVis] = useState(false)
   function hideModal() {
     setIsVis(false)
   }
@@ -120,7 +124,9 @@ function App() {
         onDismiss={hideModal}
         isBlocking={false}
       >
-        <MailTo />
+        <MailTo
+          onSuccess={hideModal} 
+        />
       </Modal>
       <header>
         <h1>
@@ -134,13 +140,7 @@ function App() {
         <img src={logo} className="logo" alt="logo" />
       </header>
       <article>
-        <h3>Contact</h3>
-        <p>
-          info.5.2020@goatstone.com
-          </p>
-         <h5>
-          Github
-          </h5>
+        <h3>Github</h3>
         <ul>
           <li>
             <a href="https://github.com/joseherminiocollas" target="new">
@@ -151,9 +151,6 @@ function App() {
             <a href="https://github.com/goatstone" target="new">github.com/goatstone</a>
           </li>
         </ul>
-      </article>
-      <article>
-        <h3>Web Development</h3>
         <p>
           Goatstone is primarily but not exclusively, Jose Collas. Here you will find a collection of some of our
           work. Goatstone is involved in web development, primary using the technologies: JavaScipt, CSS, and HTML.
